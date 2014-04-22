@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery - itab</title>
+    <link rel="stylesheet" type="text/css" href="jquery.itab.css" />
+    <script type="text/javascript" src="./jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="./jquery.itab.js"></script>
+    <style type="text/css">
+    .container {
+        margin: 0 auto;
+        padding: 50px 0;
+        width: 960px;
+    }
+    .section {
+        padding: 15px 0;
+    }
+    </style>
+    <script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            $('#auto1').itab({
+                evt: 'click',
+                auto: true,
+                display: 'push',
+                callback: function(oldBar, newBar) {
+                    $('#auto1 .auto-title').html(newBar.attr('title'));
+                }
+            });
+            $('.page-view').itab({
+                evt: 'click',
+                auto: true,
+                callback: function(oldBar, newBar) {
+                    $('.page-view .title-text').html(newBar.attr('title'));
+                }
+            });
+            $('.itab-v').itab({
+                display: 'push'
+            });
+            $('.itab-h').itab({
+                display: 'fadein'
+            });
+        });
+    })(jQuery)
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>jQuery插件 - 轮播&tab切换</h1>
+        <div class="section">
+            <h3>自动轮播：样式一</h3>
+            <div id="auto1" class="auto-view">
+                <div class="auto-cont">
+                    <div class="item">
+                        <img src="images/temp_pic_1.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_2.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_3.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_4.jpg">
+                    </div>
+                </div>
+                <div class="auto-bar">
+                    <span class="bar" title="1111111111111111">1</span>
+                    <span class="bar" title="22222222222222">2</span>
+                    <span class="bar" title="3333333333333333">3</span>
+                    <span class="bar" title="4444444444444">4</span>
+                </div>
+                <div class="auto-title"></div>
+                <div class="auto-title-bg opacity-70"></div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>自动轮播：样式二</h3>
+            <div class="page-view">
+                <div class="page-cont">
+                    <div class="item">
+                        <img src="images/temp_pic_1.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_2.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_3.jpg">
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_4.jpg">
+                    </div>
+                </div>
+                <div class="page-title">
+                    <div class="title-text">这里是标题</div>
+                    <div class="page-bar">
+                        <span class="bar" title="1111111111111111">1</span>
+                        <span class="bar" title="22222222222222">2</span>
+                        <span class="bar" title="3333333333333333">3</span>
+                        <span class="bar" title="4444444444444">4</span>
+                    </div>
+                </div>
+                <div class="page-title-bg opacity-70"></div>
+
+            </div>
+        </div>
+        <hr />
+        <div class="section">
+            <h3>tab切换：样式二</h3>
+            <div class="itab-h">
+                <div class="itab-bar">
+                    <span class="bar">按钮1</span>
+                    <span class="bar">按钮2</span>
+                    <span class="bar">按钮3</span>
+                    <span class="bar">按钮4</span>
+                </div>
+                <div class="itab-cont">
+                    <div class="item">
+                        内容1111111111111
+                    </div>
+                    <div class="item">
+                        内容2222222222222
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_4.jpg">
+                    </div>
+                    <div class="item">
+                        内容4444444444444
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>tab切换：样式二</h3>
+            <div class="itab-v">
+                <div class="itab-bar">
+                    <span class="bar">按钮1</span>
+                    <span class="bar">按钮2</span>
+                    <span class="bar">按钮3</span>
+                    <span class="bar">按钮4</span>
+                </div>
+                <div class="itab-cont">
+                    <div class="item">
+                        内容1111111111111
+                    </div>
+                    <div class="item">
+                        <img src="images/temp_pic_4.jpg">
+                    </div>
+                    <div class="item">
+                        内容333333333333
+                    </div>
+                    <div class="item">
+                        内容4444444444444
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
