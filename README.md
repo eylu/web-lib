@@ -3,8 +3,8 @@ itab
 
 tab show
 
-it can be show width some simple style if you use (`display:'fadein'|'push')
-it can be auto show if you use (`auto:true), the default time is 3000ms. you can change time to another with (`time: xxxx)
+it can be show width some simple style if you use (`display:'fadein'|'push'`)
+it can be auto show if you use (`auto:true`), the default time is 3000ms. you can change time to another with (`time: xxxx`)
 
 ### use
 
