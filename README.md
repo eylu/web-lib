@@ -38,3 +38,5 @@ js
         });
     })(jQuery)
 
+
+Good lucky～～
