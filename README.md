@@ -41,4 +41,8 @@ js
 
 Good lucky～～
 
+
 Oh, you nice!
+
+Yes, I'm Bad To Better !!
+
