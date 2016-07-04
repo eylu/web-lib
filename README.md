@@ -42,6 +42,7 @@ js
 Good lucky～～
 
 
+
 Oh, you nice!
 
 Yes, I'm Bad To Better !!
@@ -49,4 +50,7 @@ Yes, I'm Bad To Better !!
 Hello Hello, I come from master
 
 Bibol Bibol, I come from master too.
+
+
+It‘s ok, fine fine, I come from Develop!
 
