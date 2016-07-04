@@ -42,3 +42,5 @@ js
 Good lucky～～
 
 No, I'm Bad !!
+
+It‘s ok, fine fine!
