@@ -40,3 +40,5 @@ js
 
 
 Good lucky～～
+
+No, I'm Bad !!
