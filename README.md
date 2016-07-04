@@ -43,28 +43,3 @@ Good lucky～～
 
 
 
-Oh, you nice!
-
-Yes, I'm Bad To Better !!
-
-Hello Hello, I come from master
-
-Bibol Bibol, I come from master too.
-
-
-It‘s ok, fine fine, I come from Develop!
-
-Develop Feature One
-
-Develop Feature Two
-
-Master Feature One
-
-Develop Feature Three
-
-Feature G1
-
-Feature G2
-
-Feature G3    this is very different
-
