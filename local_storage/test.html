@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>本地存储 LocalStorage</title>
+    <script type="text/javascript" src="local_storage_map.js"></script>
+    <script type="text/javascript">
+        var lsm = new LocalStorageFactory('cn.eylu.lsm');
+
+        lsm.save(0, [{name:'商品1'},{name:'商品2'}]);
+
+        var goods = lsm.load(0);
+        console.log(goods);
+
+        goods.push({name:'商品3'});
+        lsm.save(0, goods);
+
+        var goods2 = lsm.load(0);
+        console.log(goods2);
+
+    </script>
+</head>
+<body>
+请在 console 中查看
+</body>
+</html>
