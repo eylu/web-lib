@@ -17,7 +17,7 @@
  *
  *    @example
  *
- *    var lsf = new LocalStorageFactory('');
+ *    var lsf = new LocalStorageFactory('com.github.eylu');
  *
  *    // 数据保存
  *    lsf.save('name', 'Eylu')
