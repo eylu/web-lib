@@ -18,5 +18,7 @@
 
 ### 使用
 
+压缩合并任务已在 gulp.js 中写好，运行如下命令即可：
+
     $ gulp // 此命令运行默认的 task
     $ gulp minifyCss // 此命令运行名称为 minifyCss 的 task
