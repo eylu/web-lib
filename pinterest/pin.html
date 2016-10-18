@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Pin Terest</title>
+    <script src="./jquery-1.7.2.min.js"></script>
+    <script src="./jquery.pin.js"></script>
+    <script>
+    (function($) {
+        $(function() {
+            $("#pin").PinTerest({
+                item_selector: ".pinitem", //选择器
+                column_change: false, //是否随浏览器窗口大小改变列数
+                stamp_left_height: 0, // 左侧留空的高度
+                stamp_right_height: 0 // 右侧留空的高度
+            });
+
+
+        })
+    })(jQuery)
+    </script>
+    <style>
+    body {
+        background: #fff;
+    }
+    * {
+        margin:0;
+        padding:0;
+    }
+    img {
+        border:0;
+        width: 100%;
+    }
+    .center {
+        margin:0 auto;
+    }
+
+
+    .pin .pinitem .pincontent {
+        border: 1px solid #aaa;
+    }
+    h1 {
+        height: 80px;
+        line-height: 80px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <h1>
+            jQuery插件 - 瀑布流
+        </h1>
+        <div>
+            <div id="pin" class="pin">
+                <div class="pinstamp"></div>
+                <div class="pinstamp-right"></div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p1.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p2.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p3.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p4.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p5.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p1.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p2.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p3.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+                <div class="pinitem">
+                    <div class="pincontent">
+                    <img src="./images/p4.png" />
+                    a show style for list , just likes pinterest !<br>
+                    content of item, you can instead with your content|dom|other ...
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
