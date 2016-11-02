@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>百度地图画区域</title>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css" />
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        #BaiduMap{
+            height: 100%;
+            width: 100%;
+        }
+
+        #otherWrapper{
+            height: 100%;
+            width: 300px;
+            background: #fff;
+            border-right: 1px dotted #aaa;
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+        button{
+            padding: 3px 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="otherWrapper">
+    <div>这里是其他信息展示</div>
+    <div>
+        <button onclick="openDraw()">开启 绘制模式</button>
+        <button onclick="closeDraw()">关闭 绘制模式</button>
+    </div>
+    <div>
+        <button onclick="showOverlays()">显示</button>
+        <button onclick="clearOverlays()">清除</button>
+        <button onclick="consoleLog()">输出</button>
+    </div>
+</div>
+<div id="BaiduMap"></div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9qYjbd5cFgyo06gY3GD8yI09U9fHZspt"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+<script type="text/javascript" src="./BMapDrawTool.js"></script>
+<script type="text/javascript">
+    var overlays = [];
+
+    var openDraw = function(){
+        tool.enabledDraw();
+    };
+    var closeDraw = function(){
+        tool.disabledDraw();
+    };
+
+    var consoleLog = function(){
+        console.log(overlays);
+        for (var i = 0; i < overlays.length; i++) {
+            var overlay = overlays[i];
+            console.log(overlay);
+        }
+    };
+
+    var showOverlays = function(){
+        tool.addOverlays(overlays);
+    };
+
+    var clearOverlays = function(){
+        tool.clearAll();
+    };
+
+    var overlayFinish = function(e){
+        overlays.push(e);
+    };
+
+    var tool = new BMapDrawTool('BaiduMap', {
+        overlayFinish: overlayFinish
+    });
+</script>
+</html>
