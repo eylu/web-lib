@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+    <title>贴近用户体验的jQuery日期选择插件 - 站长素材</title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./dateRange.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./dateRange.css" />
+
+
+
+</head>
+
+<body bgcolor="white" text="black">
+    <h1>Calendar Demo</h1>
+    <div>
+        <div class="ta_date" id="div_date_demo3">
+            <span class="date_title" id="date_demo3">请选择日期范围</span>
+            <a class="opt_sel" id="input_trigger_demo3" href="#">
+                <i class="i_orderd"></i>
+            </a>
+        </div>
+        <div id="datePicker"></div>
+    </div>
+
+
+</body>
+<script type="text/javascript">
+        var dateRange = new pickerDateRange('date_demo3', {
+            isTodayValid: true,
+            weekendDis: false,
+            stopToday: false,
+            defaultText: ' 至 ',
+            inputTrigger: 'input_trigger_demo3',
+            theme: 'ta',
+            calendars: 1,
+            disCertainDate: [29, 30, 31],
+            dayRangeMax: 5,
+            monthRangeMax: 0,
+            success: function(obj) {
+                console.log(obj);
+            }
+        });
+        console.log(dateRange);
+        </script>
+</html>
