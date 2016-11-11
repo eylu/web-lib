@@ -17,7 +17,7 @@ React Native 图片封装
 
 2、显示
 
-    var icon = 'aaa' + '_xxx_yyy.png';
+    var icon = 'aaa' + '_xxx_yyy';
     <ImageWrapper icon={icon}  />
     <ImageWrapper icon={icon} width={20} height={20} />
     <ImageWrapper icon={icon} width={20} height={20} style={} />
