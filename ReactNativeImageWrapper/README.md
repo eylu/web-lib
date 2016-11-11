@@ -1,9 +1,13 @@
 ## React Native Image Wrapper
 
 React Native 图片封装
+
 1、路径可以是变量值；
+
 2、统一管理图片；
+
 3、自定义大小、样式。
+
 
 ### 使用
 
