@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>省市区选择</title>
+    <link rel="stylesheet" type="text/css" href="css/dist_selector.css" />
+    <style type="text/css">
+        #wrapper{
+            width: 800px;
+            margin: 100px auto 0;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <h1>示例</h1>
+    <div class="dist-selector"><input type="text" readonly="readonly" /></div>
+</div>
+</body>
+<script type="text/javascript" src="js/cityjson.js"></script>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.dist_selector.js"></script>
+<script type="text/javascript">
+    $('.dist-selector').distSelector({
+        onSelect: function(obj, data){
+            console.log('已选择：',data);
+            var result = '';
+            result += data.province||'';
+            result += ','+data.city||'';
+            result += ','+data.dist||'';
+            $('input', obj).val(result);
+        }
+    });
+</script>
+</html>
