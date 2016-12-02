@@ -8,13 +8,13 @@ export default class ImageWrapper extends Component {
     constructor(props){
         super(props);
         this.state = {
-            source: props.icon,
+            icon: props.icon,
         };
     }
 
     componentWillReceiveProps(newProps){
         this.setState({
-            source: newProps.icon || '',
+            icon: newProps.icon || '',
         });
     }
 
