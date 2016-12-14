@@ -57,3 +57,7 @@ gulp.task('minifyHtml', function(done){
 });
 
 gulp.task('default', ['minifyCss', 'minifyJs']);
+
+gulp.task('watch', function() {
+    gulp.watch([cssPath, jsPath], ['minifyCss', 'minifyJs']);
+});
