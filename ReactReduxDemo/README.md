@@ -8,6 +8,7 @@
 1、安装 React Native
 
   英文 http://facebook.github.io/react-native/docs/getting-started.html
+
   中文 http://reactnative.cn/
 
 2、初始化项目
