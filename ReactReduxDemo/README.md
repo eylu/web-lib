@@ -28,13 +28,13 @@
    在 index.ios.js 中引入不同步骤的入口文件，可以查看各步骤的效果。
 
 
-   app_step0 未使用 redux，单纯的 ReactNative 项目
+   app_step0: 未使用 redux，单纯的 ReactNative 项目
 
-   app_step1 使用 redux、react-redux，使用了 Store、Provider、connect() ，并显示了初始数据。
+   app_step1: 使用 redux、react-redux，使用了 Store、Provider、connect() ，并显示了初始数据。
 
-   app_step2 使用 dispatch(action)、reducer，完成了 TODO 状态切换、添加 TODO 项。
+   app_step2: 使用 dispatch(action)、reducer，完成了 TODO 状态切换、添加 TODO 项。
 
-   app_step3 将项目功能完善，完成了 TODO 状态过滤显示。
+   app_step3: 将项目功能完善，完成了 TODO 状态过滤显示。
 
 
 
