@@ -18,7 +18,12 @@ export const SET_FILTER = 'SET_FILTER';
  * @return {Object}       action
  */
 export function changeTodoStatus(id){
-    return {type: TOGGLE_TODO_STATUS, id};
+    return function (dispatch){                   // return 一个 function
+        setTimeout(()=>{                          // 延迟执行
+            dispatch({type: TOGGLE_TODO_STATUS, id});
+        }, 2000);
+    }
+    // return {type: TOGGLE_TODO_STATUS, id};
 }
 
 export function addNewTodo(text){
@@ -26,9 +31,5 @@ export function addNewTodo(text){
 }
 
 export function filterTodoList(filter){
-    return function (dispatch){                   // return 一个 function
-        setTimeout(()=>{                          // 延迟执行
-            dispatch({type: SET_FILTER, filter});
-        }, 2000);
-    }
+    return {type: SET_FILTER, filter};
 };
