@@ -1,0 +1,35 @@
+.page-new-order{
+    background: #fff;
+    margin-top: 54px;
+    padding-top: 40px;
+}
+.gfresh-date-picker{
+    position: relative;
+}
+.gfresh-date-picker .date-icon{
+    position: absolute !important;
+    top: 5px;
+    right: 13px;
+}
+
+.price-wrapper{
+    position: relative;
+}
+.pre-tip{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px;
+}
+.price-input input{
+    padding-left: 24px !important;
+}
+@media (max-width: 767px) {
+    .page-new-order{
+        padding: 30px 0 0;
+        margin-top: 0;
+    }
+}

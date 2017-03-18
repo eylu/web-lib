@@ -1,0 +1,49 @@
+.home-route-section{
+    padding: 32px 0 0;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.home-route-logo{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #e7e6e7;
+    margin: 0 auto 24px;
+    box-shadow: inset -1px -1px 3px rgba(0,0,0,0.2);
+}
+.home-route-name {
+    margin-bottom: 32px;
+}
+.home-route-name h2{
+    font-size: 18px;
+}
+
+.filter-wrapper {}
+
+.filter-wrapper .filter-btn-group{
+
+}
+.filter-wrapper .filter-btn{
+    text-align: center;
+    height: 43px;
+    line-height: 40px;
+    border-bottom: 3px solid #fff;
+}
+
+.filter-wrapper .filter-btn.active{
+
+    border-color: #0067ff;
+}
+
+.filter-wrapper .buttons{
+    padding: 8px;
+}
+
+.flight-list .flight-title{
+    border-top: 8px solid #f1f1f1;
+    border-bottom: none;
+    padding: 16px 16px 16px 8px;
+}
