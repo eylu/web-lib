@@ -1,0 +1,27 @@
+.page-route-details{
+    margin-top: 54px;
+    padding: 0;
+    background: #fff;
+    font-weight: 400;
+}
+.card-inner{
+    padding: 20px 20px 0;
+}
+
+.page-route-details .flex-wrapper{
+    margin-bottom: 5px;
+}
+.page-route-details .font-big{
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+    .page-route-details{
+        padding: 0;
+        margin-top: 0;
+    }
+    .card-inner{
+        padding: 0;
+    }
+}
+
