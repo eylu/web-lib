@@ -31,7 +31,7 @@ export default class Layout extends Component {
         /**
          * bind some handle to self
          */
-        this.updateDimensions = this.updateDimensions.bind(this);
+
         this.handleToggle = this.handleToggle.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.addNewOrder = this.addNewOrder.bind(this);
@@ -39,39 +39,36 @@ export default class Layout extends Component {
         this.handleOnRequestChange = this.handleOnRequestChange.bind(this);
 
 
-        this.phoneWidth = 768;
+
 
         this.state = {
-            winWidth: window.innerWidth,
-            winHeight: window.innerHeight,
-            isPhone: window.innerWidth <= this.phoneWidth,
-            openDrawer: window.innerWidth > this.phoneWidth,
+            isPhone: props.isPhone,
+            openDrawer: !props.isPhone,
             openMenu: false,
         };
 
     }
 
+    componentDidMount(){
+        // console.log(this.props);
 
-    updateDimensions() {
-        this.setState({
-            winWidth: window.innerWidth,
-            winHeight: window.innerHeight,
-            isPhone: window.innerWidth <= this.phoneWidth,
-            openDrawer: window.innerWidth > this.phoneWidth,
-        });
     }
 
-    componentWillMount() {
-        this.updateDimensions();
+    componentWillReceiveProps(nextProps){
+        // console.log('nextProps Home:',nextProps);
+        let { isPhone } = this.state;
+        if(isPhone != nextProps.isPhone){
+            this.setState({
+                isPhone: nextProps.isPhone,
+            }, ()=>{
+                this.handleToggle();
+            });
+
+        }
     }
 
-    componentDidMount() {
-        window.addEventListener("resize", this.updateDimensions);
-    }
 
-    componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions);
-    }
+
 
     handleToggle() {
         this.setState({openDrawer: !this.state.openDrawer})
@@ -97,7 +94,8 @@ export default class Layout extends Component {
 
 
     addNewOrder(){
-        hashHistory.push('/order-new');
+        // var { router } = this.props;
+        // router && router.push('/order-new');
     }
 
     renderAppBarRight(){
@@ -119,23 +117,15 @@ export default class Layout extends Component {
             // tip = <FontIcon className="material-icons" color="#fff" style={{marginLeft:8,padding:12,}} onTouchTap={this.addNewOrder}>add_circle_outline</FontIcon>
         }else{
             tip = (
-                <div className="top-bar-right clearfix">
-                    <div className="l" style={{paddingTop:5}}><FontIcon className="material-icons" style={{fontSize:18,color:'#bfc3ca'}}>notifications</FontIcon></div>
-                    <div className="logo-img l" onTouchTap={this.handleOpenMenu}><img src={logoImg} className="l" /></div>
-                    <div className="user-name l" onTouchTap={this.handleOpenMenu}>Freight Forwarder</div>
-                    <IconMenu
-                        className="l"
-                        iconButtonElement={<IconButton style={{display:'none'}}><MoreVertIcon /></IconButton>}
-                        open={this.state.openMenu}
-                        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-
-                        onRequestChange={this.handleOnRequestChange}
+                <div style={{padding:12,marginLeft:8}}>
+                    <FloatingActionButton
+                        style={{width:24,height:24}}
+                        iconStyle={{width:24,height:24}}
+                        backgroundColor="#0067ff"
+                        onTouchTap={this.addNewOrder}
                     >
-                        <MenuItem value="1" primaryText="lucien@gfresh.com" />
-                        <MenuItem value="2" primaryText="Sign out" />
-
-                    </IconMenu>
+                        <ContentAdd />
+                    </FloatingActionButton>
                 </div>
             );
         }
@@ -152,17 +142,16 @@ export default class Layout extends Component {
         let mainStyle = {paddingLeft:this.state.isPhone?0:260};
         let appBarRight = this.renderAppBarRight();
 
-        const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, { 'data-isphone': this.state.isPhone, 'data-addNewOrder': this.addNewOrder }));
         return (
             <div className="container" style={mainStyle}>
                 <AppBar
-                    title="Welcome"
+                    title={this.props.title}
                     showMenuIconButton={showMenuIconButton}
                     onLeftIconButtonTouchTap={this.handleToggle}
                     iconElementRight={appBarRight}
                     titleStyle={titleStyle}
                     style={{background:this.state.isPhone?'#0067ff':'#fff',}}
-                    className="app-bar app-bar-inner"
+                    className="app-bar"
                 />
                 <Drawer
                     containerClassName="sider-bar"
@@ -211,8 +200,8 @@ export default class Layout extends Component {
                         </div>
                     </div>
                 </Drawer>
-                <div className={`main-content ${this.state.isPhone?'isphone':''}`}>
-                    {childrenWithProps}
+                <div className="main-content">
+                    {this.props.children}
                 </div>
             </div>
         )

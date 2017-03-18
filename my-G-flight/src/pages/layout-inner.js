@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router';
+
 
 /**
  * import libs:  material
@@ -29,12 +29,18 @@ export default class HomePage extends Component {
     }
 
     goBack(){
-        hashHistory.goBack();
+        var { router } = this.props;
+        router && router.goBack();
     }
 
     renderAppBarRight(){
+        var tip = '';
+        if(this.props.rightButtons){
+            tip = this.props.rightButtons();
+        }
+
         return (
-            <div>asdsad</div>
+            <div>{tip}</div>
         );
     }
 
@@ -42,7 +48,7 @@ export default class HomePage extends Component {
     render() {
         // var leftBtn = <IconButton onTouchTap={this.goBack}>      <ActionBackup />    </IconButton>
         let titleStyle = {textAlign: 'center', color:'#fff', fontSize:18};
-        let childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child));
+
         let appbarRight = this.renderAppBarRight();
         return (
             <div className="container">
@@ -52,11 +58,13 @@ export default class HomePage extends Component {
                     iconElementLeft={<FontIcon onTouchTap={this.goBack} className="material-icons" color="#fff" style={{fontSize:32,width:48,height:48,textAlign:'center',lineHeight:'48px'}}>navigate_before</FontIcon>}
                     titleStyle={titleStyle}
                     style={{background:'#0067ff'}}
-                    className="app-bar  app-bar-inner"
+                    className="app-bar"
                     // iconClassNameRight="app-bar-right"
                     iconElementRight={appbarRight}
                 />
-                {childrenWithProps}
+                <div className="main-content">
+                {this.props.children}
+                </div>
             </div>
         );
     }

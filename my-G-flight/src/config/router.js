@@ -11,8 +11,13 @@ import {
  * import pages
  */
 import HomePage from '../pages/home.page';
+// import AboutPage from '../pages/about.page';
+// import OtherPage from '../pages/other.page';
 import RouteDetailsPhonePage from '../pages/route-details-phone.page';
 import NewRoutePage from '../pages/new-route.page';
+
+
+
 
 
 
@@ -22,13 +27,45 @@ import NewRoutePage from '../pages/new-route.page';
 class App extends Component {
     constructor(props){
         super(props);
+
+        this.updateDimensions = this.updateDimensions.bind(this);
+
+        this.phoneWidth = 768;
+
+        this.state = {
+            winWidth: window.innerWidth,
+            winHeight: window.innerHeight,
+            isPhone: window.innerWidth <= this.phoneWidth,
+        };
+    }
+
+    updateDimensions() {
+        this.setState({
+            winWidth: window.innerWidth,
+            winHeight: window.innerHeight,
+            isPhone: window.innerWidth <= this.phoneWidth,
+        });
+    }
+
+    componentWillMount() {
+        this.updateDimensions();
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
     }
 
     render() {
 
+        let childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, { 'isPhone': this.state.isPhone, }));
+
         return (
             <div className="react-root">
-                {this.props.children}
+                {childrenWithProps}
             </div>
         )
     }

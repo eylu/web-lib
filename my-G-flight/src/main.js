@@ -12,14 +12,12 @@ import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 /**
  * import styles
  */
-import 'antd/dist/antd.css';
-import 'rc-pagination/assets/index.css';
 import 'material-design-icons/iconfont/material-icons.css';
-import './assets/stylesheets/cover.css';
+import 'rc-pagination/assets/index.css';
 import './assets/stylesheets/core.css';
 import './assets/stylesheets/home.css';
-import './assets/stylesheets/new-order.css';
-import './assets/stylesheets/order-details-phone.css';
+import './assets/stylesheets/new-route.css';
+import './assets/stylesheets/route-details-phone.css';
 /**
  * import Material UI Libs
  */

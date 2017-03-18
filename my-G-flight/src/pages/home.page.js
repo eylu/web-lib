@@ -7,31 +7,19 @@ import {
     dataToJS,
     pathToJS,
 } from 'react-redux-firebase';
-import { Link, hashHistory, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 /**
- * import libs: antd, material
+ * import libs: antd, material, lodash
  */
-import BackTop from 'antd/lib/back-top';
-import Pagination from 'rc-pagination';
-import RaisedButton from 'material-ui/RaisedButton';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import Snackbar from 'material-ui/Snackbar';
-import AppBar from 'material-ui/AppBar';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-
-import FontIcon from 'material-ui/FontIcon';
-import {red500, yellow500, blue500} from 'material-ui/styles/colors';
-
+import Snackbar from 'material-ui/Snackbar';
+import Pagination from 'rc-pagination';
 import _ from 'lodash';
-import Layout from './layout';
-import { hashReverse } from '../utils/base';
-import { orderStatus } from '../config/enum';
+
 import { toggleSnackbar } from '../actions';
-const orderStatusReverse = hashReverse(orderStatus);
-import flightImg from '../assets/images/logo.jpg';
+import Layout from './layout';
 /**
  * initialize a Page Component named HomePage
  * connect firebase's data
@@ -80,22 +68,11 @@ export default class HomePage extends Component {
      */
     componentDidMount(){
 
-        let { firebase } = this.props;
-        // dispatch({type:'SHOW_ORDER', data: true})
-        // console.log(this.props);
-        // firebase.logout();
-        // firebase.auth().onAuthStateChanged((user) => {
-        //     // console.log('is login：',user)
-        //     if (user) {
-        //     // User is signed in.
-        //     }else{
-        //         hashHistory.push('/login')
-        //     }
-        // });
     }
 
     componentWillReceiveProps(nextProps){
-        let { isPhone } = this.props;
+        // console.log('nextProps Home:',nextProps);
+        let { isPhone } = this.state;
         if(isPhone != nextProps.isPhone){
             this.setState({
                 isPhone: nextProps.isPhone,
@@ -121,11 +98,13 @@ export default class HomePage extends Component {
     }
 
     addNewRoute(){
-        hashHistory.push('/route-new');
+        var { router } = this.props;
+        router && router.push('/route-new');
     }
 
     gotoDetails(route){
-        hashHistory.push(`/route-details-phone/${route.flightKey}/${route.key}`);
+        var { router } = this.props;
+        router && router.push(`/route-details-phone/${route.flightKey}/${route.key}`);
     }
 
     filterData(data){
@@ -182,6 +161,8 @@ export default class HomePage extends Component {
         );
     }
 
+
+
     render() {
 
         let { flights, hasNewRoute } = this.props;
@@ -214,7 +195,7 @@ export default class HomePage extends Component {
         }
 
         return (
-            <Layout>
+            <Layout title="Welcome" isPhone={this.state.isPhone}>
                 <div className="page-wrapper panel" style={{maxWidth:'100%'}}>
                     <div className="home-route-section">
                         <div className="home-route-logo"></div>
@@ -257,22 +238,6 @@ export default class HomePage extends Component {
                 />
             </Layout>
         );
-    }
-}
-
-function getStyleByStatus(statusNum, status){
-    var num = orderStatusReverse[status];
-    if(!num){
-        return '#bfc3ca';
-    }
-    if(statusNum < num){
-        return '#bfc3ca';
-    }
-    if(statusNum == num){
-        return '#3a4657';
-    }
-    if(statusNum > num){
-        return '#0bb82b';
     }
 }
 

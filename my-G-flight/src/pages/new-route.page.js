@@ -11,45 +11,26 @@ import {
 import { Link, hashHistory } from 'react-router';
 
 /**
- * import libs: antd, material
+ * import libs: antd, material, lodash
  */
 import DatePicker from 'material-ui/DatePicker';
 import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import Divider from 'material-ui/Divider';
 import { ValidatorForm, TextValidator, SelectValidator, DateValidator} from 'react-material-ui-form-validator';
-import FontIcon from 'material-ui/FontIcon';
-import AutoComplete from 'material-ui/AutoComplete';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-
-
 import _ from 'lodash';
+
 import LayoutInner from './layout-inner';
 import { toggleSnackbar } from '../actions';
-import { specEnum } from '../config/enum';
-
-import flightImg from '../assets/images/logo.jpg';
-
-const specMap = _.map(specEnum, (val, key)=>{ return {val:key, text:val} });
-
 const styles = {
-  underlineStyle: {
-    borderColor: '#0067ff',
-  },
-  floatingLabelStyle: {
-    color: '#0067ff',
-  },
-  floatingLabelFocusStyle: {
-    color: '#0067ff',
-  },
-};
-
-const dataSourceConfig = {
-  text: 'name',
-  value: 'name',
+    underlineStyle: {
+        borderColor: '#0067ff',
+    },
+    floatingLabelStyle: {
+        color: '#0067ff',
+    },
+    floatingLabelFocusStyle: {
+        color: '#0067ff',
+    },
 };
 
 /**
@@ -137,7 +118,7 @@ export default class NewRoutePage extends Component {
 
     handleSubmit() {
 
-        let { firebase, dispatch } = this.props;
+        let { firebase, dispatch, router } = this.props;
         // console.log(this.state);
         // return false
 
@@ -156,7 +137,7 @@ export default class NewRoutePage extends Component {
             }).then(()=>{
                 dispatch(toggleSnackbar(true));
                 this.setState({loading: false});
-                hashHistory.goBack();
+                router && router.goBack();
             });
         }
     }
@@ -198,7 +179,7 @@ export default class NewRoutePage extends Component {
         let currentFlight = this.renderCurrentFlight(flights);
 
         return (
-            <LayoutInner title="Add new route">
+            <LayoutInner title="Add new route" {...this.props}>
                 <div className="page-wrapper page-new-order">
                     <div className="form" style={{padding:40}}>
                         <ValidatorForm ref="form" onSubmit={this.handleSubmit}>

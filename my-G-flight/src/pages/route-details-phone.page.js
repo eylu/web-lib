@@ -14,17 +14,15 @@ import { Link, hashHistory } from 'react-router';
  * import libs: antd, material
  */
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import FontIcon from 'material-ui/FontIcon';
+
+
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
-import {
-  Step,
-  Stepper,
-  StepLabel,
-  StepContent,
-} from 'material-ui/Stepper';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import ActionDeleteForever from 'material-ui/svg-icons/action/delete-forever';
+import EditorBorderColor from 'material-ui/svg-icons/editor/border-color';
 import moment from 'moment';
 import _ from 'lodash';
 
@@ -67,6 +65,20 @@ export default class RouteDetailsPhonePage extends Component {
      */
     componentDidMount(){
         console.log(this.props);
+    }
+
+    renderRightForLayout(){
+        return (
+            <IconMenu
+              iconButtonElement={<IconButton><MoreVertIcon color="#fff" /></IconButton>}
+              anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+              targetOrigin={{horizontal: 'right', vertical: 'top'}}
+            >
+                <MenuItem primaryText="Edit" leftIcon={<EditorBorderColor />} />
+                <MenuItem primaryText="Delete" leftIcon={<ActionDeleteForever />} />
+
+            </IconMenu>
+        )
     }
 
     renderContent(flight, priceObj){
@@ -140,7 +152,7 @@ export default class RouteDetailsPhonePage extends Component {
         }
 
         return (
-            <LayoutInner title="Route">
+            <LayoutInner title="Route" rightButtons={this.renderRightForLayout} {...this.props}>
                 {content}
             </LayoutInner>
         );
