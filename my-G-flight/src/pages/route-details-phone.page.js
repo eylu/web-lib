@@ -120,7 +120,7 @@ export default class RouteDetailsPhonePage extends Component {
                             <div className="flex-wrapper">
                                 <div className="flex1 color-gray">Date</div>
                                 <div className="font-big">
-                                    {moment(priceObj.date).format('YYYY-MM-DD')}
+                                    {moment(priceObj.date).format('DD MMM YYYY')}
                                 </div>
                             </div>
                         </div>

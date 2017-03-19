@@ -18,6 +18,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import { ValidatorForm, TextValidator, SelectValidator, DateValidator} from 'react-material-ui-form-validator';
 import _ from 'lodash';
+import moment from 'moment';
 
 import LayoutInner from './layout-inner';
 import { toggleSnackbar } from '../actions';
@@ -263,6 +264,7 @@ export default class NewRoutePage extends Component {
                                         style={{height:32}}
                                         textFieldStyle={{height:32,width:'100%'}}
                                         onChange={this.datePickerChange}
+                                        formatDate={(date)=>{return moment(date).format('DD MMM YYYY')}}
                                     />
                                 </div>
                             </div>
