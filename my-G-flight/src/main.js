@@ -22,7 +22,7 @@ import './assets/stylesheets/route-details-phone.css';
  * import Material UI Libs
  */
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 /**
@@ -49,7 +49,13 @@ import reducers from './reducers/index';
 
 // // Create store with reducers and initial state
 // const store = createStoreWithFirebase(reducers)
-
+const muiTheme = getMuiTheme({
+    palette: {
+        primary1Color: '#0067ff',
+        primary2Color: '#0067ff',
+        primary3Color: '#0067ff',
+    },
+});
 const store = createStore(
   reducers,
   {
@@ -66,6 +72,6 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <MuiThemeProvider><RouterPage /></MuiThemeProvider>
+        <MuiThemeProvider muiTheme={muiTheme}><RouterPage /></MuiThemeProvider>
     </Provider>
     , document.getElementById('root'));

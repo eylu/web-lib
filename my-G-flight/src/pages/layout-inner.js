@@ -57,7 +57,6 @@ export default class HomePage extends Component {
                     showMenuIconButton={true}
                     iconElementLeft={<FontIcon onTouchTap={this.goBack} className="material-icons" color="#fff" style={{fontSize:32,width:48,height:48,textAlign:'center',lineHeight:'48px'}}>navigate_before</FontIcon>}
                     titleStyle={titleStyle}
-                    style={{background:'#0067ff'}}
                     className="app-bar"
                     // iconClassNameRight="app-bar-right"
                     iconElementRight={appbarRight}

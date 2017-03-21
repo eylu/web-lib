@@ -22,17 +22,6 @@ import moment from 'moment';
 
 import LayoutInner from './layout-inner';
 import { toggleSnackbar } from '../actions';
-const styles = {
-    underlineStyle: {
-        borderColor: '#0067ff',
-    },
-    floatingLabelStyle: {
-        color: '#0067ff',
-    },
-    floatingLabelFocusStyle: {
-        color: '#0067ff',
-    },
-};
 
 /**
  * initialize a Page Component named HomePage
@@ -190,7 +179,6 @@ export default class NewRoutePage extends Component {
                                     name="flight"
                                     value={route.flight.key}
                                     onChange={this.onFlightChange}
-                                    underlineFocusStyle={styles.underlineStyle}
                                     fullWidth={true}
                                     validators={['required']}
                                     errorMessages={['this field is required']}
@@ -212,10 +200,6 @@ export default class NewRoutePage extends Component {
                                         value={route.boxes}
                                         validators={['required']}
                                         errorMessages={['this field is required']}
-                                        // underlineStyle={styles.underlineStyle}
-                                        underlineFocusStyle={styles.underlineStyle}
-                                        // floatingLabelStyle={styles.floatingLabelStyle}
-                                        // floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                                         style={{height:32,width:'100%'}}
                                         onChange={this.textChangeHandle}
                                     />
@@ -226,7 +210,6 @@ export default class NewRoutePage extends Component {
                                         name="weight"
                                         type="number"
                                         value={route.weight}
-                                        underlineFocusStyle={styles.underlineStyle}
                                         style={{height:32,width:'100%'}}
                                         validators={['required']}
                                         errorMessages={['this field is required']}
@@ -245,10 +228,6 @@ export default class NewRoutePage extends Component {
                                             value={route.perPrice}
                                             validators={['required']}
                                             errorMessages={['this field is required']}
-                                            // underlineStyle={styles.underlineStyle}
-                                            underlineFocusStyle={styles.underlineStyle}
-                                            // floatingLabelStyle={styles.floatingLabelStyle}
-                                            // floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                                             style={{height:32,width:'100%'}}
                                             onChange={this.textChangeHandle}
                                             className="price-input"
@@ -260,7 +239,6 @@ export default class NewRoutePage extends Component {
                                     <DatePicker
                                         name="date"
                                         value={route.date}
-                                        underlineFocusStyle={styles.underlineStyle}
                                         style={{height:32}}
                                         textFieldStyle={{height:32,width:'100%'}}
                                         onChange={this.datePickerChange}
@@ -271,8 +249,7 @@ export default class NewRoutePage extends Component {
                             <div className="fields">
                                 <RaisedButton
                                     label="Add"
-                                    buttonStyle={{background:'#0067ff'}}
-                                    labelColor="#fff"
+                                    primary={true}
                                     fullWidth={true}
                                     type="submit"
                                     disabled={this.state.loading}
