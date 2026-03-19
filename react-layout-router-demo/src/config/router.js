@@ -13,6 +13,7 @@ import {
 import HomePage from '../pages/home.page';
 import AboutPage from '../pages/about.page';
 import OtherPage from '../pages/other.page';
+import ToolsPage from '../pages/tools.page';
 
 
 
@@ -78,6 +79,7 @@ export default class RouterPage extends Component {
             <Router history={hashHistory}>
                 <Route path="/" component={App}>
                     <IndexRoute component={HomePage} />
+                    <Route path="/tools" component={ToolsPage} />
                     <Route path="/about" component={AboutPage} />
                     <Route path="/other" component={OtherPage} />
                 </Route>

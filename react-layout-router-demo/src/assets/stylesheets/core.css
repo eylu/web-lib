@@ -210,6 +210,14 @@ b,strong{
 .link-list li .tip{
     color: #3f434b;
 }
+.link-list .nav-link{
+    color: #ced1d4;
+    font-weight: 500;
+}
+.link-list .nav-link:hover{
+    color: #fff;
+    text-decoration: none;
+}
 .sider-bottom{
     position: absolute;
     bottom: 0;
@@ -217,6 +225,10 @@ b,strong{
     right: 0;
     padding: 0 25px 100px;
     text-align: right;
+}
+.sider-bottom .link{
+    color: #9ca3af;
+    margin-bottom: 12px;
 }
 .sider-bottom .link{
     padding: 5px 0;
