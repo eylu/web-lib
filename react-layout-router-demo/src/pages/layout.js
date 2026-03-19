@@ -15,6 +15,7 @@ import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import { Link } from 'react-router';
 
 import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
@@ -94,7 +95,7 @@ export default class Layout extends Component {
 
 
     addNewOrder(){
-        hashHistory.push('/order-new');
+        hashHistory.push('/tools');
     }
 
     renderAppBarRight(){
@@ -167,34 +168,34 @@ export default class Layout extends Component {
                             <div className="home-route-logo" style={{margin:0}}></div>
                         </div>
                         <div className="company-name">
-                            Freight Forwarder
+                            AI Tool Hub
                         </div>
                         <ul className="link-list">
                             <li className="clearfix">
-                                <div className="l">Dashboard</div>
+                                <Link className="l nav-link" to="/">首页概览</Link>
                             </li>
                             <li className="clearfix">
-                                <div className="l">Routes</div>
+                                <Link className="l nav-link" to="/tools">工具管理</Link>
+                                <div className="tip r">12</div>
+                            </li>
+                            <li className="clearfix">
+                                <Link className="l nav-link" to="/about">使用说明</Link>
+                                <div className="tip r">3</div>
+                            </li>
+                            <li className="clearfix">
+                                <Link className="l nav-link" to="/other">扩展规划</Link>
                                 <div className="tip r">2</div>
-                            </li>
-                            <li className="clearfix">
-                                <div className="l">Orders</div>
-                                <div className="tip r">6</div>
-                            </li>
-                            <li className="clearfix">
-                                <div className="l">Customers</div>
-                                <div className="tip r">6</div>
                             </li>
                         </ul>
                         <div className="sider-bottom">
                             <div className="link">
-                                <span className="">Edit Profile</span>
+                                <span className="">新增工具</span>
                             </div>
                             <div className="link">
-                                <span className="">Settings</span>
+                                <span className="">状态维护</span>
                             </div>
                             <div className="link">
-                                <span className="">About</span>
+                                <span className="">说明文档</span>
                             </div>
                         </div>
                     </div>

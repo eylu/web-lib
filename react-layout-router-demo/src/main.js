@@ -14,6 +14,7 @@ import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
  */
 import 'material-design-icons/iconfont/material-icons.css';
 import './assets/stylesheets/core.css';
+import './assets/stylesheets/home.css';
 
 /**
  * import Material UI Libs
