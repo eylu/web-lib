@@ -1,50 +1,69 @@
 import React, { Component } from 'react';
 import Layout from './layout';
 
-const toolGroups = [
+const members = [
     {
-        name: 'ChatGPT',
-        category: '综合助手',
+        name: 'Lucien Chen',
+        role: '管理员',
         status: 'status-live',
-        statusText: '已接入',
-        description: '适合进行知识问答、写作辅助、需求整理和多轮头脑风暴。',
-        meta: ['内容创作', '方案拆解', '团队协作'],
-        highlights: ['统一 AI 工具说明入口', '可沉淀常见使用场景', '适合做团队默认推荐'],
+        statusText: '正常',
+        team: '产品团队',
+        email: 'lucien.chen@team.io',
+        tags: ['Owner', 'SSO', '高权限'],
+        highlights: ['负责组织配置与角色策略', '可审核新成员申请', '维护关键账号安全策略'],
     },
     {
-        name: 'Claude',
-        category: '长文理解',
+        name: 'Mia Zhou',
+        role: '运营经理',
+        status: 'status-live',
+        statusText: '正常',
+        team: '运营团队',
+        email: 'mia.zhou@team.io',
+        tags: ['Active', '内容运营', '最近登录 2h'],
+        highlights: ['管理运营成员分组', '可查看业务数据看板', '支持邀请外部协作者'],
+    },
+    {
+        name: 'Aron Li',
+        role: '访客',
         status: 'status-test',
-        statusText: '测试中',
-        description: '更适合长文本阅读、文档分析和较复杂的上下文处理场景。',
-        meta: ['长文总结', '策略分析', '知识库问答'],
-        highlights: ['适合复杂文档对比', '能补充内容分析场景', '推荐给产品与运营'],
+        statusText: '待激活',
+        team: '设计协作',
+        email: 'aron.li@agency.io',
+        tags: ['Invite', '只读权限', '外部成员'],
+        highlights: ['等待完成邮箱验证', '激活后自动加入设计项目组', '限制敏感配置与导出权限'],
     },
     {
-        name: 'Perplexity',
-        category: '检索问答',
-        status: 'status-live',
-        statusText: '已接入',
-        description: '强调联网检索与引用，适合快速调研、行业信息追踪和事实核验。',
-        meta: ['行业调研', '信息检索', '快速验证'],
-        highlights: ['适合做资讯类问题入口', '有助于补齐来源可信度', '便于对外信息收集'],
-    },
-    {
-        name: 'Midjourney',
-        category: '视觉生成',
+        name: 'Nina Wang',
+        role: '审计员',
         status: 'status-plan',
-        statusText: '规划中',
-        description: '用于概念图、海报灵感和视觉风格探索，适合设计前期提案。',
-        meta: ['视觉概念', '海报灵感', '品牌氛围'],
-        highlights: ['适合与设计流程结合', '优先补充使用规范', '建议后续增加案例库'],
+        statusText: '待审批',
+        team: '财务与合规',
+        email: 'nina.wang@team.io',
+        tags: ['审批中', '日志查看', '合规'],
+        highlights: ['申请访问操作日志', '需绑定 MFA 后启用账号', '上线后纳入季度审计流程'],
     },
 ];
 
-const comparisonRows = [
-    ['ChatGPT', '内容创作 / 办公辅助', '高', '运营、产品、研发', '默认推荐'],
-    ['Claude', '长文档理解 / 分析', '中', '产品、策略、研究', '适合复杂文档'],
-    ['Perplexity', '联网调研 / 引用核验', '高', '运营、市场、商务', '适合搜索型需求'],
-    ['Midjourney', '图片生成 / 灵感探索', '中', '设计、品牌', '待补充规范'],
+const permissionRows = [
+    ['管理员', '组织设置、角色配置、成员导入导出', '全部项目', 'MFA + 审批'],
+    ['业务负责人', '成员分组、资源分配、邀请成员', '所属团队', 'SSO'],
+    ['普通成员', '查看与编辑被授权内容', '授权项目', 'SSO / 邮箱'],
+    ['访客', '只读访问、评论、受限下载', '指定空间', '邮箱验证'],
+];
+
+const lifecycleSteps = [
+    {
+        title: '入职开通',
+        desc: '通过部门模板批量发放基础角色，缩短新成员开通时间。',
+    },
+    {
+        title: '权限调整',
+        desc: '根据岗位变化进行角色升级、团队迁移与敏感权限审批。',
+    },
+    {
+        title: '离职回收',
+        desc: '自动停用账号、移交资源并保留完整审计日志。',
+    },
 ];
 
 export default class ToolsPage extends Component {
@@ -64,17 +83,17 @@ export default class ToolsPage extends Component {
         }
     }
 
-    renderToolCard(item, index){
+    renderUserCard(item, index){
         return (
             <div className="tool-card" key={index}>
                 <div className="tool-card-header">
-                    <span className="tool-tag">{item.category}</span>
+                    <span className="tool-tag">{item.team}</span>
                     <span className={`status-badge ${item.status}`}>{item.statusText}</span>
                 </div>
                 <h3>{item.name}</h3>
-                <p>{item.description}</p>
+                <p>{item.role} · {item.email}</p>
                 <div className="tool-meta">
-                    {item.meta.map((text, metaIndex) => (
+                    {item.tags.map((text, metaIndex) => (
                         <span className="meta-pill" key={metaIndex}>{text}</span>
                     ))}
                 </div>
@@ -89,51 +108,50 @@ export default class ToolsPage extends Component {
 
     render() {
         return (
-            <Layout title="工具管理" isPhone={this.state.isPhone}>
+            <Layout title="用户管理" isPhone={this.state.isPhone}>
                 <div className="page-shell">
                     <div className="tool-toolbar">
                         <div>
-                            <h1 className="section-title">AI 工具管理页面</h1>
+                            <h1 className="section-title">用户管理中心</h1>
                             <p className="section-desc">
-                                统一整理团队正在使用和准备接入的 AI 工具，先覆盖工具说明、适用场景和对比信息，
-                                为后续权限管理、申请流程和案例沉淀打基础。
+                                把成员信息、角色权限、激活状态和生命周期管理集中到一个界面，
+                                方便团队快速完成开通、审批、停用与审计追踪。
                             </p>
                         </div>
                         <div className="toolbar-stats">
                             <div className="toolbar-chip">
-                                <strong>4</strong>
-                                <span>核心工具</span>
+                                <strong>128</strong>
+                                <span>总用户数</span>
                             </div>
                             <div className="toolbar-chip">
-                                <strong>3</strong>
-                                <span>管理维度</span>
+                                <strong>24</strong>
+                                <span>待处理变更</span>
                             </div>
                             <div className="toolbar-chip">
-                                <strong>1</strong>
-                                <span>优先对比页</span>
+                                <strong>98%</strong>
+                                <span>已绑定 SSO</span>
                             </div>
                         </div>
                     </div>
 
                     <div className="tool-grid">
-                        {toolGroups.map((item, index) => this.renderToolCard(item, index))}
+                        {members.map((item, index) => this.renderUserCard(item, index))}
                     </div>
 
                     <div className="panel-card" style={{marginBottom: 24}}>
-                        <div className="panel-title">工具对比总览</div>
+                        <div className="panel-title">角色与权限矩阵</div>
                         <div className="comparison-table">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>工具</th>
-                                        <th>定位</th>
-                                        <th>上手难度</th>
-                                        <th>推荐团队</th>
-                                        <th>备注</th>
+                                        <th>角色</th>
+                                        <th>核心权限</th>
+                                        <th>可访问范围</th>
+                                        <th>安全要求</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {comparisonRows.map((row, index) => (
+                                    {permissionRows.map((row, index) => (
                                         <tr key={index}>
                                             {row.map((col, columnIndex) => (
                                                 <td key={columnIndex}>{col}</td>
@@ -146,18 +164,12 @@ export default class ToolsPage extends Component {
                     </div>
 
                     <div className="roadmap-grid">
-                        <div className="roadmap-card">
-                            <h4>阶段一：说明整理</h4>
-                            <p>先把 AI 工具的名称、定位、适用场景和状态维护起来，形成统一信息入口。</p>
-                        </div>
-                        <div className="roadmap-card">
-                            <h4>阶段二：对比视图</h4>
-                            <p>把高频工具放入同一视图比较，突出推荐人群、优缺点和接入优先级。</p>
-                        </div>
-                        <div className="roadmap-card">
-                            <h4>阶段三：流程扩展</h4>
-                            <p>后续可继续加入申请、审批、反馈和使用案例，让工具管理更完整。</p>
-                        </div>
+                        {lifecycleSteps.map((item, index) => (
+                            <div className="roadmap-card" key={index}>
+                                <h4>{item.title}</h4>
+                                <p>{item.desc}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </Layout>

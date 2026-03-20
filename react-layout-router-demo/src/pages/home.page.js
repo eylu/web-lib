@@ -2,23 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
     firebaseConnect,
-    isLoaded,
-    isEmpty,
     dataToJS,
-    pathToJS,
 } from 'react-redux-firebase';
 import { Link } from 'react-router';
 
-/**
- * import libs: antd, material
- */
-
 import Layout from './layout';
-/**
- * initialize a Page Component named HomePage
- * connect firebase's data
- *
- */
+
 @firebaseConnect([
     'flights'
 ])
@@ -36,40 +25,12 @@ export default class HomePage extends Component {
     constructor(props){
         super(props);
 
-        /**
-         * bind some handle to self
-         */
         this.state = {
             isPhone: props.isPhone,
         }
     }
 
-
-    /**
-     * componentDidMount
-     *
-     * auth user by firebase
-     * if no auth, turn to login url and show LoginComponent
-     */
-    componentDidMount(){
-        console.log('Home', window.history.length);
-        let { firebase } = this.props;
-        // console.log('HomePage', this.props);
-        // dispatch({type:'SHOW_ORDER', data: true})
-        // console.log(this.props);
-        // firebase.logout();
-        // firebase.auth().onAuthStateChanged((user) => {
-        //     // console.log('is login：',user)
-        //     if (user) {
-        //     // User is signed in.
-        //     }else{
-        //         hashHistory.push('/login')
-        //     }
-        // });
-    }
-
     componentWillReceiveProps(nextProps){
-        // console.log('nextProps Home:',nextProps);
         let { isPhone } = this.state;
         if(isPhone != nextProps.isPhone){
             this.setState({
@@ -78,57 +39,54 @@ export default class HomePage extends Component {
         }
     }
 
-
-
     render() {
-
         return (
-            <Layout title="AI 工具工作台" isPhone={this.state.isPhone}>
+            <Layout title="用户管理工作台" isPhone={this.state.isPhone}>
                 <div className="page-shell">
                     <div className="page-hero">
                         <div className="page-hero-copy">
-                            <span className="page-badge">Tool Management</span>
-                            <h1>集中管理团队常用的 AI 工具</h1>
+                            <span className="page-badge">User Management</span>
+                            <h1>集中维护成员、权限与账号状态</h1>
                             <p>
-                                先把 AI 工具说明和对比能力整理起来，方便团队统一了解工具定位、
-                                适用场景与当前状态。
+                                以用户为中心统一查看组织成员、角色分配、激活状态和安全要求，
+                                帮助团队更快完成开通、调整和审计闭环。
                             </p>
                             <div className="page-actions">
-                                <Link className="primary-link" to="/tools">进入工具管理页</Link>
-                                <Link className="secondary-link" to="/about">查看使用说明</Link>
+                                <Link className="primary-link" to="/users">进入用户管理</Link>
+                                <Link className="secondary-link" to="/about">查看维护说明</Link>
                             </div>
                         </div>
                         <div className="hero-metrics">
                             <div className="metric-card">
-                                <strong>12</strong>
-                                <span>已整理工具</span>
+                                <strong>128</strong>
+                                <span>组织成员</span>
                             </div>
                             <div className="metric-card">
-                                <strong>4</strong>
-                                <span>优先推荐分类</span>
+                                <strong>16</strong>
+                                <span>角色模板</span>
                             </div>
                             <div className="metric-card">
-                                <strong>3</strong>
-                                <span>待补充说明</span>
+                                <strong>7</strong>
+                                <span>待审批申请</span>
                             </div>
                         </div>
                     </div>
 
                     <div className="content-grid">
                         <div className="panel-card">
-                            <div className="panel-title">当前整理重点</div>
+                            <div className="panel-title">当前管理重点</div>
                             <ul className="bullet-list">
-                                <li>AI 对比工具：收集、定位与推荐人群</li>
-                                <li>内容创作工具：快速生成、润色与翻译能力</li>
-                                <li>设计辅助工具：视觉稿、原型和素材产出</li>
+                                <li>统一成员信息入口，按团队与角色快速检索</li>
+                                <li>完善账号激活、停用与审批中的状态追踪</li>
+                                <li>补齐管理员、普通成员与访客的权限边界</li>
                             </ul>
                         </div>
                         <div className="panel-card">
-                            <div className="panel-title">推荐管理维度</div>
+                            <div className="panel-title">建议优先建设</div>
                             <ul className="bullet-list">
-                                <li>功能定位：工具能解决什么问题</li>
-                                <li>接入状态：已上线、测试中、规划中</li>
-                                <li>适用团队：产品、运营、研发、设计</li>
+                                <li>角色模板：减少重复授权配置</li>
+                                <li>安全校验：SSO、MFA 与异常登录提醒</li>
+                                <li>生命周期：入职、转岗、离职自动流转</li>
                             </ul>
                         </div>
                     </div>
@@ -137,4 +95,3 @@ export default class HomePage extends Component {
         );
     }
 }
-
