@@ -41,52 +41,52 @@ export default class HomePage extends Component {
 
     render() {
         return (
-            <Layout title="用户管理工作台" isPhone={this.state.isPhone}>
+            <Layout title="分析工具工作台" isPhone={this.state.isPhone}>
                 <div className="page-shell">
                     <div className="page-hero">
                         <div className="page-hero-copy">
-                            <span className="page-badge">User Management</span>
-                            <h1>集中维护成员、权限与账号状态</h1>
+                            <span className="page-badge">Analytics Tools</span>
+                            <h1>集中查看团队现在能用的分析工具</h1>
                             <p>
-                                以用户为中心统一查看组织成员、角色分配、激活状态和安全要求，
-                                帮助团队更快完成开通、调整和审计闭环。
+                                先完成工具盘点与页面结构整理，再邀请设计人员介入细化视觉方案，
+                                帮助团队快速对齐每个分析模块的定位与建设优先级。
                             </p>
                             <div className="page-actions">
-                                <Link className="primary-link" to="/users">进入用户管理</Link>
-                                <Link className="secondary-link" to="/about">查看维护说明</Link>
+                                <Link className="primary-link" to="/tools">进入分析工具页</Link>
+                                <Link className="secondary-link" to="/about">查看页面说明</Link>
                             </div>
                         </div>
                         <div className="hero-metrics">
                             <div className="metric-card">
-                                <strong>128</strong>
-                                <span>组织成员</span>
+                                <strong>4</strong>
+                                <span>分析工具类型</span>
                             </div>
                             <div className="metric-card">
-                                <strong>16</strong>
-                                <span>角色模板</span>
+                                <strong>3</strong>
+                                <span>首屏信息模块</span>
                             </div>
                             <div className="metric-card">
-                                <strong>7</strong>
-                                <span>待审批申请</span>
+                                <strong>1</strong>
+                                <span>待设计协作项</span>
                             </div>
                         </div>
                     </div>
 
                     <div className="content-grid">
                         <div className="panel-card">
-                            <div className="panel-title">当前管理重点</div>
+                            <div className="panel-title">这次页面先解决什么</div>
                             <ul className="bullet-list">
-                                <li>统一成员信息入口，按团队与角色快速检索</li>
-                                <li>完善账号激活、停用与审批中的状态追踪</li>
-                                <li>补齐管理员、普通成员与访客的权限边界</li>
+                                <li>把已有分析工具做成清晰的能力摘要，便于先讨论内容范围</li>
+                                <li>用统一卡片和表格梳理工具差异，降低后续设计沟通成本</li>
+                                <li>明确哪些模块已经能展示，哪些部分还需要设计补位</li>
                             </ul>
                         </div>
                         <div className="panel-card">
                             <div className="panel-title">建议优先建设</div>
                             <ul className="bullet-list">
-                                <li>角色模板：减少重复授权配置</li>
-                                <li>安全校验：SSO、MFA 与异常登录提醒</li>
-                                <li>生命周期：入职、转岗、离职自动流转</li>
+                                <li>事件分析：作为日常使用频率最高的基础模块优先呈现</li>
+                                <li>漏斗分析：帮助增长场景快速识别转化问题</li>
+                                <li>看板洞察：在设计介入后再补充图表与管理驾驶舱样式</li>
                             </ul>
                         </div>
                     </div>
