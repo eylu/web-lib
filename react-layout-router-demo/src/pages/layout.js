@@ -95,7 +95,7 @@ export default class Layout extends Component {
 
 
     addNewOrder(){
-        hashHistory.push('/tools');
+        hashHistory.push('/users');
     }
 
     renderAppBarRight(){
@@ -168,14 +168,14 @@ export default class Layout extends Component {
                             <div className="home-route-logo" style={{margin:0}}></div>
                         </div>
                         <div className="company-name">
-                            AI Tool Hub
+                            User Admin Hub
                         </div>
                         <ul className="link-list">
                             <li className="clearfix">
                                 <Link className="l nav-link" to="/">首页概览</Link>
                             </li>
                             <li className="clearfix">
-                                <Link className="l nav-link" to="/tools">工具管理</Link>
+                                <Link className="l nav-link" to="/users">用户管理</Link>
                                 <div className="tip r">12</div>
                             </li>
                             <li className="clearfix">
@@ -189,13 +189,13 @@ export default class Layout extends Component {
                         </ul>
                         <div className="sider-bottom">
                             <div className="link">
-                                <span className="">新增工具</span>
+                                <span className="">新增成员</span>
                             </div>
                             <div className="link">
-                                <span className="">状态维护</span>
+                                <span className="">权限策略</span>
                             </div>
                             <div className="link">
-                                <span className="">说明文档</span>
+                                <span className="">审计日志</span>
                             </div>
                         </div>
                     </div>

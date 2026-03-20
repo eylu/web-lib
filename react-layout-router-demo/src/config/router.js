@@ -80,6 +80,7 @@ export default class RouterPage extends Component {
                 <Route path="/" component={App}>
                     <IndexRoute component={HomePage} />
                     <Route path="/tools" component={ToolsPage} />
+                    <Route path="/users" component={ToolsPage} />
                     <Route path="/about" component={AboutPage} />
                     <Route path="/other" component={OtherPage} />
                 </Route>
