@@ -95,7 +95,7 @@ export default class Layout extends Component {
 
 
     addNewOrder(){
-        hashHistory.push('/users');
+        hashHistory.push('/tools');
     }
 
     renderAppBarRight(){
@@ -168,34 +168,34 @@ export default class Layout extends Component {
                             <div className="home-route-logo" style={{margin:0}}></div>
                         </div>
                         <div className="company-name">
-                            User Admin Hub
+                            Analytics Tool Hub
                         </div>
                         <ul className="link-list">
                             <li className="clearfix">
                                 <Link className="l nav-link" to="/">首页概览</Link>
                             </li>
                             <li className="clearfix">
-                                <Link className="l nav-link" to="/users">用户管理</Link>
-                                <div className="tip r">12</div>
+                                <Link className="l nav-link" to="/tools">分析工具</Link>
+                                <div className="tip r">4</div>
                             </li>
                             <li className="clearfix">
-                                <Link className="l nav-link" to="/about">使用说明</Link>
-                                <div className="tip r">3</div>
-                            </li>
-                            <li className="clearfix">
-                                <Link className="l nav-link" to="/other">扩展规划</Link>
+                                <Link className="l nav-link" to="/about">页面说明</Link>
                                 <div className="tip r">2</div>
+                            </li>
+                            <li className="clearfix">
+                                <Link className="l nav-link" to="/other">设计需求</Link>
+                                <div className="tip r">1</div>
                             </li>
                         </ul>
                         <div className="sider-bottom">
                             <div className="link">
-                                <span className="">新增成员</span>
+                                <span className="">新增工具</span>
                             </div>
                             <div className="link">
-                                <span className="">权限策略</span>
+                                <span className="">工具分层</span>
                             </div>
                             <div className="link">
-                                <span className="">审计日志</span>
+                                <span className="">设计跟进</span>
                             </div>
                         </div>
                     </div>

@@ -1,68 +1,68 @@
 import React, { Component } from 'react';
 import Layout from './layout';
 
-const members = [
+const tools = [
     {
-        name: 'Lucien Chen',
-        role: '管理员',
+        name: '事件分析',
+        role: '实时行为观察',
         status: 'status-live',
-        statusText: '正常',
-        team: '产品团队',
-        email: 'lucien.chen@team.io',
-        tags: ['Owner', 'SSO', '高权限'],
-        highlights: ['负责组织配置与角色策略', '可审核新成员申请', '维护关键账号安全策略'],
+        statusText: '已上线',
+        team: '产品分析',
+        email: '支持自定义事件、属性拆解与实时趋势追踪',
+        tags: ['PV / UV', '事件流', '分钟级刷新'],
+        highlights: ['适合快速定位功能使用情况', '支持按渠道、版本与人群进行过滤', '可下钻到单个事件属性分布'],
     },
     {
-        name: 'Mia Zhou',
-        role: '运营经理',
+        name: '漏斗分析',
+        role: '转化路径诊断',
         status: 'status-live',
-        statusText: '正常',
-        team: '运营团队',
-        email: 'mia.zhou@team.io',
-        tags: ['Active', '内容运营', '最近登录 2h'],
-        highlights: ['管理运营成员分组', '可查看业务数据看板', '支持邀请外部协作者'],
+        statusText: '核心工具',
+        team: '增长运营',
+        email: '观察关键步骤转化率，识别流失节点与优化优先级',
+        tags: ['转化率', '步骤对比', '按用户分层'],
+        highlights: ['支持新老用户分组对比', '适合注册、付费、激活等关键旅程', '可结合事件属性观察转化差异'],
     },
     {
-        name: 'Aron Li',
-        role: '访客',
+        name: '留存分析',
+        role: '用户价值追踪',
         status: 'status-test',
-        statusText: '待激活',
-        team: '设计协作',
-        email: 'aron.li@agency.io',
-        tags: ['Invite', '只读权限', '外部成员'],
-        highlights: ['等待完成邮箱验证', '激活后自动加入设计项目组', '限制敏感配置与导出权限'],
+        statusText: '内测中',
+        team: '用户研究',
+        email: '衡量次日、7日、30日留存，帮助判断产品粘性与功能效果',
+        tags: ['次日留存', 'Cohort', '行为回访'],
+        highlights: ['可按首次来源观察留存质量', '适合评估新功能上线后的持续使用情况', '建议和事件分析联动查看'],
     },
     {
-        name: 'Nina Wang',
-        role: '审计员',
+        name: '看板洞察',
+        role: '业务指标总览',
         status: 'status-plan',
-        statusText: '待审批',
-        team: '财务与合规',
-        email: 'nina.wang@team.io',
-        tags: ['审批中', '日志查看', '合规'],
-        highlights: ['申请访问操作日志', '需绑定 MFA 后启用账号', '上线后纳入季度审计流程'],
+        statusText: '待设计',
+        team: '管理驾驶舱',
+        email: '聚合核心指标、异常提醒和周报视图，为管理层提供统一观察面板',
+        tags: ['指标卡片', '异常预警', '周报摘要'],
+        highlights: ['适合沉淀跨团队共识指标', '需要设计统一视觉层级与筛选交互', '建议与设计同学联合梳理组件规范'],
     },
 ];
 
-const permissionRows = [
-    ['管理员', '组织设置、角色配置、成员导入导出', '全部项目', 'MFA + 审批'],
-    ['业务负责人', '成员分组、资源分配、邀请成员', '所属团队', 'SSO'],
-    ['普通成员', '查看与编辑被授权内容', '授权项目', 'SSO / 邮箱'],
-    ['访客', '只读访问、评论、受限下载', '指定空间', '邮箱验证'],
+const comparisonRows = [
+    ['事件分析', '查看功能使用趋势与属性分布', '产品、研发、运营', '高'],
+    ['漏斗分析', '诊断关键流程的转化损耗', '增长、运营、产品', '高'],
+    ['留存分析', '跟踪用户后续回访与活跃情况', '产品、用户研究', '中'],
+    ['看板洞察', '沉淀核心业务指标与异常提醒', '管理层、业务负责人', '高'],
 ];
 
-const lifecycleSteps = [
+const deliverySteps = [
     {
-        title: '入职开通',
-        desc: '通过部门模板批量发放基础角色，缩短新成员开通时间。',
+        title: '先总结现有工具',
+        desc: '先把事件、漏斗、留存、看板四类分析工具的用途、适用对象与优先级梳理清楚。',
     },
     {
-        title: '权限调整',
-        desc: '根据岗位变化进行角色升级、团队迁移与敏感权限审批。',
+        title: '补一版页面信息架构',
+        desc: '按照“工具概览 → 能力卡片 → 对比表 → 设计需求”组织页面，方便设计与开发同步。',
     },
     {
-        title: '离职回收',
-        desc: '自动停用账号、移交资源并保留完整审计日志。',
+        title: '邀请设计人员介入',
+        desc: '页面进入视觉设计阶段后，建议补齐卡片样式、图表占位和交互状态说明。',
     },
 ];
 
@@ -83,7 +83,7 @@ export default class ToolsPage extends Component {
         }
     }
 
-    renderUserCard(item, index){
+    renderToolCard(item, index){
         return (
             <div className="tool-card" key={index}>
                 <div className="tool-card-header">
@@ -108,50 +108,69 @@ export default class ToolsPage extends Component {
 
     render() {
         return (
-            <Layout title="用户管理" isPhone={this.state.isPhone}>
+            <Layout title="分析工具页" isPhone={this.state.isPhone}>
                 <div className="page-shell">
                     <div className="tool-toolbar">
                         <div>
-                            <h1 className="section-title">用户管理中心</h1>
+                            <h1 className="section-title">分析工具总览</h1>
                             <p className="section-desc">
-                                把成员信息、角色权限、激活状态和生命周期管理集中到一个界面，
-                                方便团队快速完成开通、审批、停用与审计追踪。
+                                先把当前可用的分析工具总结清楚，再把页面结构交给设计人员继续细化视觉与交互，
+                                让团队可以更快对齐工具定位、适用场景和下一步建设重点。
                             </p>
                         </div>
                         <div className="toolbar-stats">
                             <div className="toolbar-chip">
-                                <strong>128</strong>
-                                <span>总用户数</span>
+                                <strong>4</strong>
+                                <span>已梳理工具</span>
                             </div>
                             <div className="toolbar-chip">
-                                <strong>24</strong>
-                                <span>待处理变更</span>
+                                <strong>2</strong>
+                                <span>优先上线模块</span>
                             </div>
                             <div className="toolbar-chip">
-                                <strong>98%</strong>
-                                <span>已绑定 SSO</span>
+                                <strong>1</strong>
+                                <span>待设计页面</span>
                             </div>
                         </div>
                     </div>
 
                     <div className="tool-grid">
-                        {members.map((item, index) => this.renderUserCard(item, index))}
+                        {tools.map((item, index) => this.renderToolCard(item, index))}
                     </div>
 
-                    <div className="panel-card" style={{marginBottom: 24}}>
-                        <div className="panel-title">角色与权限矩阵</div>
+                    <div className="content-grid">
+                        <div className="panel-card">
+                            <div className="panel-title">本页建议展示的信息</div>
+                            <ul className="bullet-list">
+                                <li>每个分析工具解决什么问题、由谁使用、当前所处阶段。</li>
+                                <li>工具之间的差异：实时趋势、转化诊断、留存追踪与综合看板。</li>
+                                <li>需要设计补充的模块：图表样式、筛选区、空状态、数据刷新提示。</li>
+                            </ul>
+                        </div>
+                        <div className="panel-card">
+                            <div className="panel-title">设计协作建议</div>
+                            <ul className="bullet-list">
+                                <li>先输出低保真页面结构，确认工具卡片与数据表的层级关系。</li>
+                                <li>再由设计补齐图表容器、状态标签、导航高亮与移动端适配。</li>
+                                <li>如果后续要接入真实数据，建议提前预留筛选栏与时间维度切换。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="panel-card" style={{margin: '24px 0'}}>
+                        <div className="panel-title">工具能力对比</div>
                         <div className="comparison-table">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>角色</th>
-                                        <th>核心权限</th>
-                                        <th>可访问范围</th>
-                                        <th>安全要求</th>
+                                        <th>工具</th>
+                                        <th>核心价值</th>
+                                        <th>主要使用人群</th>
+                                        <th>优先级</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {permissionRows.map((row, index) => (
+                                    {comparisonRows.map((row, index) => (
                                         <tr key={index}>
                                             {row.map((col, columnIndex) => (
                                                 <td key={columnIndex}>{col}</td>
@@ -164,7 +183,7 @@ export default class ToolsPage extends Component {
                     </div>
 
                     <div className="roadmap-grid">
-                        {lifecycleSteps.map((item, index) => (
+                        {deliverySteps.map((item, index) => (
                             <div className="roadmap-card" key={index}>
                                 <h4>{item.title}</h4>
                                 <p>{item.desc}</p>

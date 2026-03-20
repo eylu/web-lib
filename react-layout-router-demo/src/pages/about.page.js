@@ -43,24 +43,24 @@ export default class AboutPage extends Component {
 
     render() {
         return (
-            <LayoutInner title="维护说明" isPhone={this.state.isPhone} rightButtons={this.renderRightForLayout}>
+            <LayoutInner title="页面说明" isPhone={this.state.isPhone} rightButtons={this.renderRightForLayout}>
                 <div className="page-shell inner-page-shell">
                     <div className="panel-card">
                         <div className="panel-title">页面目标</div>
                         <p className="panel-text">
-                            统一沉淀用户资料、角色策略和安全规范，确保管理员与业务负责人在同一页面协作。
+                            先将分析工具做结构化总结，让产品、研发和设计都能在同一页面上理解工具范围与阶段状态。
                         </p>
                     </div>
                     <div className="panel-card">
                         <div className="panel-title">建议维护方式</div>
                         <ul className="bullet-list">
-                            <li>按周检查待激活、待审批和停用中的账号状态</li>
-                            <li>按部门维护角色模板，避免重复分配权限</li>
-                            <li>为高权限角色强制开启 SSO、MFA 与操作审计</li>
+                            <li>新增工具时先补一张卡片，说明工具价值、目标用户与上线阶段</li>
+                            <li>定期检查能力对比表，保证优先级与团队认知同步</li>
+                            <li>设计开始后，再逐步替换占位说明为正式视觉稿与交互稿</li>
                         </ul>
                     </div>
                     <div className="page-actions">
-                        <Link className="primary-link" to="/users">查看用户管理页</Link>
+                        <Link className="primary-link" to="/tools">查看分析工具页</Link>
                         <Link className="secondary-link" to="/">返回首页</Link>
                     </div>
                 </div>
